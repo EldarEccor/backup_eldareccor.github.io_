@@ -18,7 +18,7 @@ Just to be sure the bigger picture is clear here is a short list of our little e
 
  - [Spring Tool Suite 3.9.5](https://spring.io/tools/sts/all).
  - [Gradle 4.9](https://gradle.org/install)
- - [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+ - [Java 8](http://www.oracle.com/)
 	- [Spring Boot 2.0.3](https://spring.io/projects/spring-boot)
 	- [Vaadin 10](https://vaadin.com/start)
 	- [Project Lombok](https://projectlombok.org)
@@ -299,7 +299,7 @@ script:
   - ./gradlew check
 ```
 
-Another really nice feature is that Travis can generate you an image link to you current build state, that you can inlcude in your markup files:
+Travis supports all kinds of notifications, but we will come back at a later date. Another really nice feature is that Travis can generate you an image link to you current build state, that you can inlcude in your markup files:
 
 {:refdef: style="text-align: center;"}
 [![Build Status](https://travis-ci.org/EldarEccor/eldareccor.github.io.svg?branch=master)](https://travis-ci.org/EldarEccor/eldareccor.github.io)
