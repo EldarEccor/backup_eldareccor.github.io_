@@ -47,7 +47,7 @@ Based on the dependencies described above the basic setup is quite simple. We do
 
 For our stack to work properly we need to apply several plugins and configure them. Thanks to the fine folks at Spring and Vaadin we do not have to do much else ourselves anymore:
 
-Vaadin defines a complete BOM for each release to prevent dependency conflicts and although gradle can't handle BOMs out of the box the spring boot plugin implicitly loads the spring dependency-management plugin. How convenient :) We base our dependencies on the Vaadin 10 BOM where possible and do not define versions on our own. The only exception for now is lombok, which is not included in the BOM. The first iteration of 'build.gradle' looks accordingly:  
+Vaadin defines a complete BOM for each release to prevent dependency conflicts and although gradle can't handle BOMs out of the box the spring boot plugin implicitly loads the spring dependency-management plugin, which loads the spring BOM for its version per default. How convenient :) We base our dependencies on these BOMs where possible and do not define versions on our own. The only exception for now is lombok, which is not included in either BOM. The first iteration of 'build.gradle' looks accordingly:  
 
 **build.gradle**
 ```gradle
@@ -98,12 +98,12 @@ repositories {
 }
 
 dependencies {	
-	// Vaadin spring boot starter (version from BOM)
+	// Vaadin spring boot starter (version from vaadin BOM)
 	compile("com.vaadin:vaadin-spring-boot-starter")
 	
-	//JUnit (version from BOM)
+	//JUnit (version from spring BOM)
 	testCompile("junit:junit")	
-	// Spring boot test support (version from BOM)
+	// Spring boot test support (version from spring BOM)
 	testCompile("org.springframework.boot:spring-boot-starter-test")
 	
 	// Lombok 
