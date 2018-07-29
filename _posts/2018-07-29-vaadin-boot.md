@@ -18,7 +18,7 @@ Just to be sure the bigger picture is clear here is a short list of our little e
 
  - [Spring Tool Suite 3.9.5](https://spring.io/tools/sts/all).
  - [Gradle 4.9](https://gradle.org/install)
- - [Java 8](http://www.oracle.com/)
+ - [Java 8]
 	- [Spring Boot 2.0.3](https://spring.io/projects/spring-boot)
 	- [Vaadin 10](https://vaadin.com/start)
 	- [Project Lombok](https://projectlombok.org)
