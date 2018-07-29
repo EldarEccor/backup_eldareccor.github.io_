@@ -132,7 +132,41 @@ bin/
 build/
 ```
 
-Let the fun begin :)
+Now we generate the aforementioned wrapper and commit it alongside our project so that no mixups can occur when building on remote machines or other environments.
+
+```bash
+gradle wrapper
+BUILD SUCCESSFUL in 1s
+1 actionable task: 1 executed
+```
+
+To avoid problems later we give execution rights to gradlew via git:
+
+```bash
+git update-index --chmod=+x gradlew 
+```
+
+Our project structure now looks ready:
+
+```
+.
++-- build.gradle
++-- settings.gradle
++-- .gitignore
++-- gradlew
++-- gradlew.bat
++-- gradle
+|	+-- wrapper
+|		+-- gradle-wrapper.jar
+|		+-- gradle-wrapper.properties
++-- src
+|	+-- main
+|		+-- java
+|		+-- resources
+|	+-- test
+|		+-- java
+|		+-- resources
+```
 
 ## Hello world
 
@@ -140,7 +174,7 @@ By using the spring boot starter for Vaadin 10 we gain a lot of automatic config
 
 ### The application class
 
-The canonical boot application initilizes the application cotext by "pointing" at itself using the static initializer SpringApplication. Per convention Spring scans for all applicable beans and configurations in the application's own as well as all sub-packages.   
+The canonical boot application initializes the application context by "pointing" at itself using the static initializer SpringApplication. Per convention Spring scans for all applicable beans and configurations in the application's own as well as all sub-packages.   
 
 ```java
 /**
@@ -192,7 +226,7 @@ public class DefaultRoute extends VerticalLayout{
 
 Well... and... that should actually be it! 
 
-Lets start our boot application and try it out. Because we did not define any logging configuration spring will run with its defaults, but still you should see at least the servlet mapping for vaadin in the console logs if everything went according to plan:
+Lets start our boot application and try it out. Because we did not define any logging configuration spring will run with its defaults, but still you should see at least the servlet mapping for Vaadin in the console logs if everything went according to plan:
 
 ```
 INFO 4448 --- [           main] o.a.container.JSR356AsyncSupport         : JSR 356 Mapping path /vaadinServlet
@@ -203,8 +237,70 @@ Add productionMode=true to web.xml to disable debug features.
 ===========================================================
 ```
 
-When navigating to [the default boot adress](http://localhost:8080) you now see masterpiece in all its glory:
+After navigating to **http://localhost:8080** you should now see our masterpiece in all its glory:
 
 {:refdef: style="text-align: center;"}
 ![Breathtaking]({{ site.url }}/images/1stroute.png)
+{: refdef}
+
+  
+## Adding a test
+
+We should include a basic context test to see if everything works. Fortunately we already included the boot test starter and can just use the provided annotation. 
+
+```java
+@RunWith(SpringRunner.class)
+@SpringBootTest
+public class VacationHomeApplicationTest {	
+	/**
+	 * The test runner already loads our spring context
+	 * so an empty test still checks if our configuration is
+	 * at least sane.
+	 */
+	@Test
+	public void contextLoads() {}
+}
+```
+
+## Integrating Travis CI
+
+Continuous integration has become an essential part of software development. Now that we have a functioning project, we should start CI integration asap. But what can we do if we don't have a dedicated Jenkins instance at our disposal? Travis offers you the possibility to use a hosted CI service for your Github repository. You have to download the Travis CI App in the Github marketplace and activate your repo, on Github as well as on the Travis site itsself [as described in their documentation](https://docs.travis-ci.com/user/getting-started/). After the synchronization is done, Travis will be notified when changes are pushed to your repository.
+
+
+
+On every notification Travis will now look for the file *.travis.yml* in your repository root in order to configure the build for your project. The possibilities are vast, but again I tried to find the minimal configuration. At the very least we have to tell Travis
+
+ - What language to use 
+ - What JDK to use
+ - What to actually do to build the project
+ 
+We want to use Oracle JDK 8 and simply call *gradlew check* (which runs all tests) as our build process for now. The first version of our *.travis.yml* therefore looks like this (I included some cleanup for cache problems gradle seems to have had on Travis in the past).
+
+```yml
+sudo: false
+language: java
+jdk:
+  - oraclejdk8
+  
+before_cache:
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+
+cache:
+  directories:
+    - $HOME/.m2
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
+
+before_script:
+  - chmod +x gradlew
+
+script:
+  - ./gradlew check
+```
+
+Another really nice feature is that Travis can generate you an image link to you current build state, that you can inlcude in your markup files:
+
+{:refdef: style="text-align: center;"}
+[![Build Status](https://travis-ci.org/EldarEccor/eldareccor.github.io.svg?branch=master)](https://travis-ci.org/EldarEccor/eldareccor.github.io)
 {: refdef}
