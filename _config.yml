@@ -1,4 +1,7 @@
 name: EldarEccor
+description: Blahfasel
+
+repository: EldarEccor/eldareccor.github.io
 
 theme: jekyll-theme-midnight
 
