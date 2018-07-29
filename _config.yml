@@ -1,5 +1,7 @@
 name: EldarEccor
 
+theme: jekyll-theme-midnight
+
 exclude:
   - vendor
   - README.md
