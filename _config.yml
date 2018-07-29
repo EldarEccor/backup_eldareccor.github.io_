@@ -5,6 +5,8 @@ repository: EldarEccor/eldareccor.github.io
 
 theme: jekyll-theme-midnight
 
+markdown: kramdown
+
 exclude:
   - vendor
   - README.md
