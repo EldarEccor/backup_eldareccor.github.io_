@@ -6,3 +6,4 @@ gem "jekyll-paginate"
 gem "jekyll-sitemap"
 gem "jekyll-feed"
 gem "html-proofer"
+gem "github-pages", group: :jekyll_plugins
