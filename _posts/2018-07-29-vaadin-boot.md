@@ -24,7 +24,6 @@ Just to be sure the bigger picture is clear here is a short list of our little e
 	- [Project Lombok](https://projectlombok.org)
  - [Github](https://www.github.com)
 	- [Travis CI](https://travis-ci.org)
-	- [Github Pages](https://pages.github.com)
 	
 ## Initial Gradle setup
 
