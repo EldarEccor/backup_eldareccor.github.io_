@@ -115,18 +115,29 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 ```
 
-After either using the configured eclipse plugin to generate a project or importing everything directly from STS we can now start writing some real code. For convenience we should however do one more thing first: Create the .gitignore file so eclipse or whatever git client you use won't constanly complain about all the generated files. I usually start with something minimal and add to it as I go, so for now we will use only some basic excludes. Note that for gradle projects you do not want to exclude all *.jar* files, because you will usually generate a wrapper jar (gradlew) that you *want* to commit.
+After either using the configured eclipse plugin to generate a project or importing everything directly from STS we can now start writing some real code. For convenience we should however do one more thing first: Create the .gitignore file so eclipse or whatever git client you use won't constanly complain about all the generated files. I usually start with something minimal and add to it as I go, so for now we will use only some basic excludes. Note that for gradle projects you do not want to exclude all *.jar* files, because you will usually generate a wrapper jar (gradlew) that you *want* to commit. This is achieved by explicitly allowing the jar (see below). 
 
 **.gitignore**
 ```
-# Eclipse
-.project
+# Java
+*.jar
+*.war
+*.ear
+*.class
+*.log
+
+# Eclipse STS
+.apt_generated
 .classpath
 .factorypath
-.settings/
+.project
+.settings
+.springBeans
+.sts4-cache
 bin/
 
 # Gradle
+!gradle/wrapper/gradle-wrapper.jar
 .gradle
 build/
 ```
