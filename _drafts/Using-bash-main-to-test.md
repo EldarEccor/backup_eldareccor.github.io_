@@ -10,7 +10,7 @@ Scripting is not only you best friend and enabler when in comes to automation, b
 
 These scripts are usually so basic in nature, that it doesn't even matter which shell interprets them. I like to try and keep it that way as we have to support Solaris, SLES, CentOS, RedHat etc... and i would like to keep Pandora's box closed on that front at least.
 
-The problem I faced today started out pretty easy. Some colleagues had checked in all their tests under *src/main/java* for years. This against java conventions that dictate *src/test/java* for all test classes and resources, but never seemed to be a problem. The CI build was always green and everybody was happy :)   
+The problem I faced today started out pretty easy. Some colleagues had checked in all their tests under *src/main/java* for years. This against java conventions that dictate *src/test/java* for all test classes and resources, but never seemed to be a problem. The CI build was green, Eclipse was green and everybody was happy :)   
 
 https://stackoverflow.com/questions/27472540/difference-between-and-in-bash
 
