@@ -10,7 +10,7 @@ author: EldarEccor
 
 ## The use case
 
-No real motivation - we just decided to play around a bit and check out some cool stuff. The idea is to create a website for a vacation home. Ir was born after some drinks because a lot of use cases can be explored and maybe someone can use in the future...
+No real motivation - we just decided to play around a bit and check out some cool stuff. The idea is to create a website for a vacation home. Ir was born after some drinks because a lot of use cases can be explored and maybe someone can use it in the future...
 
 ## The toolset
 
