@@ -1,18 +1,16 @@
 language: ruby
-rvm:
-- 2.1
-
-# Assume bundler is being used, therefore
-# the `install` step will run `bundle install` by default.
-script: 
-  - bundle exec jekyll build
+cache: bundler
+gemfile: docs/Gemfile
+script:
+  - bundle exec jekyll algolia --source docs --destination docs/_site --config docs/_config.yml
   - bundle exec htmlproofer ./_site
-
-# branch whitelist, only for GitHub Pages
 branches:
   only:
-  - master
-
+    # Change this to gh-pages if you're deploying using the gh-pages branch
+    - master
+rvm:
+ - 2.4
+ 
 env:
   global:
   - NOKOGIRI_USE_SYSTEM_LIBRARIES=true # speeds up installation of html-proofer

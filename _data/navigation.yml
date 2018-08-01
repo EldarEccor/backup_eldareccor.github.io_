@@ -1,0 +1,14 @@
+# main links
+ main:
+  - title: "Categories"
+    url: /categories/      
+  - title: "Tags"
+    url: /tags/
+# sidebar links 
+ sidebar_nav:
+  - title: "Quick links"
+    children:
+      - title: "Home"
+        url: /
+      - title: "About"
+        url: /about/

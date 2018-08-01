@@ -1,9 +1,8 @@
 ---
-#layout: post
 title: (Git) Bash to the rescue - moving misplaced test classes with 1 line
 date: 2018-07-31
-categories: ant
-author: EldarEccor
+categories: Snippet
+tags: ant
 ---
 
 After today I appreciate the Git bash on Windows even more:
