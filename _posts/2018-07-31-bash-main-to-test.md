@@ -3,6 +3,7 @@ title: (Git) Bash to the rescue - moving misplaced test classes with 1 line
 date: 2018-07-31
 categories: Snippet
 tags: ant
+excerpt: "Why bash makes my life that much easier."
 ---
 
 After today I appreciate the Git bash on Windows even more:
