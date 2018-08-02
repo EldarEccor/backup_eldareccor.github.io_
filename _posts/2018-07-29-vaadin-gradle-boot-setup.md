@@ -1,9 +1,10 @@
 ---
-title: Setting up Vaadin 10 with Spring Boot 2 and Gradle 4.9
+title: Vaadin 10 with Spring Boot 2
 date: 2018-07-28
 toc: true
 categories: Tutorial
 tags: vaadin10 spring-boot gradle travis
+excerpt: "Basic setup tutorial for a Vaadin 10 app with Spring Boot 2 using Gradle 4.9."
 ---
 
 # Vaadin vacation home

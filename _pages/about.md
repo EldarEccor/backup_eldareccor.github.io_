@@ -1,11 +1,10 @@
 ---
 layout: single
-author_profile: true
 permalink: /about/
 title: "About"
 excerpt: "Under the hood."
+author_profile: true
 ---
 
-Powered by Minimal Mistakes
+Developer based in Belgium trying to improve my writing.
 
-*Minimal Mistakes is designed, developed, and maintained by Michael Rose. Just another boring, tattooed, designer from Buffalo New York.*

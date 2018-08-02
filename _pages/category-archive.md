@@ -1,6 +1,7 @@
 ---
 title: "Category overview"
 layout: categories
+toc: true
 permalink: /categories/
-excerpt: "Post grouped by their categories."
+excerpt: "Posts grouped by their categories."
 ---
